@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="starter-template">
+        <button id="test-button" type="button" class="btn btn-lg btn-info">保存</button>
+        <div id="task-progress" class="progress">
+            <div class="progress-bar progress-bar-striped" style="width: 00%">
+            </div>
+        </div>
+
+        <div>
+            <table class="table table-striped">
+                <tr hidden>
+                    <th>ID</th>
+                    <td id="id">{{ task.id }}
+                    </td>
+                </tr>
+                <tr>
+                    <th>SQL上线</th>
+                    <td>
+                        <div id="sql-check" class="switch" data-on="success" data-off="warning">
+                            <input type="checkbox"
+                                   {% if task.sql_check == 1 %}
+                                   checked
+                                   {% else %}
+                                   unchecked
+                                   {% endif %}/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>数据库对比</th>
+                    <td>
+                        <div id="db-compare" class="switch" data-on="success" data-off="warning">
+                            <input type="checkbox"
+                                   {% if task.db_compare == 1 %}
+                                   checked
+                                   {% else %}
+                                   unchecked
+                                   {% endif %}/>
+                        </div>
+                    </td>
+                    <td>
+                        <button id="table-check" type="button" class="btn btn-lg btn-info">检查</button>
+                    </td>
+                </tr>
+                <tr>
+                    <th>配置文件检查</th>
+                    <td>
+                        <div id="config-check" class="switch" data-on="success" data-off="warning">
+                            <input type="checkbox"
+                                   {% if task.config_check == 1 %}
+                                   checked
+                                   {% else %}
+                                   unchecked
+                                   {% endif %}/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>上线暂停点确认</th>
+                    <td>
+                        <div id="pause-point-check" class="switch" data-on="success" data-off="warning">
+                            <input type="checkbox"
+                                   {% if task.pause_point_check == 1 %}
+                                   checked
+                                   {% else %}
+                                   unchecked
+                                   {% endif %}/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>日志的监控</th>
+                    <td>
+                        <div id="log-monitor" class="switch" data-on="success" data-off="warning">
+                            <input type="checkbox"
+                                   {% if task.log_monitor == 1 %}
+                                   checked
+                                   {% else %}
+                                   unchecked
+                                   {% endif %}/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>checklist验证完成</th>
+                    <td>
+                        <div id="checklist" class="switch" data-on="success" data-off="warning">
+                            <input type="checkbox"
+                                   {% if task.checklist == 1 %}
+                                   checked
+                                   {% else %}
+                                   unchecked
+                                   {% endif %}/>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+    <script src="/static/js/task_create.js"></script>
+{% endblock %}
