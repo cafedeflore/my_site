@@ -16,4 +16,7 @@ urlpatterns = [
     url(r'^check_task_list/$', 'helloworld.views.check_task_list'),
     url(r'^task_detail/', 'helloworld.views.task_detail'),
     url(r'^table_check/', 'helloworld.views.get_table_check'),
+
+    url(r'^upload_index/', TemplateView.as_view(template_name="upload.html")),
+    url(r'^upload/', 'helloworld.views.upload'),
 ]

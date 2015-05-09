@@ -38,6 +38,19 @@ def add_task(request):
         # print task.name
     return HttpResponseRedirect('/check_task_list/')
 
+def upload(request):
+    print "llll"
+    if request.method == 'POST':
+        file = request.FILES['package']
+        handle_uploaded_file(file)
+    return HttpResponseRedirect('/check_task_list/')
+
+def handle_uploaded_file(f):
+    with open("D:/test/" + f.name, 'wb+') as info:
+        for chunk in f.chunks():
+            info.write(chunk)
+    return f
+
 def task_detail(request):
     if request.GET.has_key('id'):
         id = request.GET['id']

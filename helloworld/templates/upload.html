@@ -40,9 +40,9 @@
         }
     </script>
 
-    <form name="input" enctype="multipart/form-data" action="/add_task/" method="post">{% csrf_token %}
+    <form name="input" action="/upload/" method="post" enctype="multipart/form-data" accept-charset="utf-8">{% csrf_token %}
         任务名称:
-        <input type="text" name="name"/>
+        <input type="file" name="package" value=""/>
         <input type="submit" value="Submit"/>
     </form>
     <img src="/static/img/luoxiahei.jpeg" alt="My image"/>
