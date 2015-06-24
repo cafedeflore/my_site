@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="UTF-8">
+    <title>{% block title %} dealsupplier {% endblock %}</title>
+    {% load staticfiles %}
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">YY小工具</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/dealtask/home">Home</a></li>
+                <li><a href="/dealtask/list">任务列表</a></li>
+                <li><a href="/dealtask/showpage">新建任务</a></li>
+                <li><a href="/dealtask/about">关于</a></li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="container" style="padding-top: 80px">
+    {% block content %}
+      <div class="starter-template">
+        <h1>这里priest小营地</h1>
+        <p class="lead">圣光会带给我胜利</p>
+      </div>
+    {% endblock %}
+</div>
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="/static/js/bootstrapSwitch.js"></script>
+{% block js %}{% endblock %}
+</body>
+</html>

@@ -1,10 +1,9 @@
-#coding=utf-8
+# coding=utf-8
 from django.shortcuts import render
 
 from django.template.loader import get_template
 from django.template import Context
 from django.http import HttpRequest
-
 
 from django.shortcuts import render_to_response
 from django.template import RequestContext
@@ -21,11 +20,14 @@ from helloworld.models import Check_Task
 def hello(request):
     return render_to_response('test.html', {})
 
+
 def home(request):
     return render_to_response('home.html', {})
 
+
 def new_check_task(request):
     return render_to_response('new_check_task.html', {}, context_instance=RequestContext(request))
+
 
 # @csrf_exempt
 def add_task(request):
@@ -38,12 +40,14 @@ def add_task(request):
         # print task.name
     return HttpResponseRedirect('/check_task_list/')
 
+
 def upload(request):
-    print "llll"
+    # print "llll"
     if request.method == 'POST':
         file = request.FILES['package']
         handle_uploaded_file(file)
     return HttpResponseRedirect('/check_task_list/')
+
 
 def handle_uploaded_file(f):
     with open("D:/test/" + f.name, 'wb+') as info:
@@ -51,27 +55,32 @@ def handle_uploaded_file(f):
             info.write(chunk)
     return f
 
+
 def task_detail(request):
     if request.GET.has_key('id'):
         id = request.GET['id']
         try:
             task = Check_Task.objects.get(id=id)
         except:
-            #应该返回错误页
+            # 应该返回错误页
             return render_to_response('test.html', {})
-    else :
+    else:
         print "error"
     return render_to_response('task_detail.html', {'task': task})
+
 
 def show_list():
     task_list = Check_Task.objects.all()
     # return HttpRequest('succeed:0')
     return render_to_response('check_task_list.html', {'task_list': task_list})
 
+
 def check_task_list(request):
     task_list = Check_Task.objects.all()
     # return HttpRequest('succeed:0')
-    return render_to_response('check_task_list.html', {'task_list': task_list}, context_instance=RequestContext(request))
+    return render_to_response('check_task_list.html', {'task_list': task_list},
+                              context_instance=RequestContext(request))
+
 
 # @csrf_exempt
 def test_ajax(request):
@@ -87,14 +96,16 @@ def test_ajax(request):
         task.save()
     except:
         print "出错了"
-    # result = 1
-    # result = json.dumps(result)
-    # print result
-    # return HttpRequest(result, mimetype='application/javascript')
+        # result = 1
+        # result = json.dumps(result)
+        # print result
+        # return HttpRequest(result, mimetype='application/javascript')
+
 
 def get_table_check(request):
     try:
-        p = subprocess.Popen('C:\\Python27\\python.exe test.py', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        p = subprocess.Popen('C:\\Python27\\python.exe test.py', shell=True, stdout=subprocess.PIPE,
+                             stderr=subprocess.STDOUT)
         retval = p.wait()
         # print "start"
         test = ""

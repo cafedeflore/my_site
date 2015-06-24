@@ -13,7 +13,7 @@ class Check_Task(models.Model):
     pause_point_check = models.IntegerField(default=0)
     log_monitor = models.IntegerField(default=0)
     checklist = models.IntegerField(default=0)
-    create_time = models.DateTimeField(default="1980-01-01 00:00:00")
+    create_time = models.DateTimeField(auto_now_add=True, null=True)
     class Meta:
         db_table = 'task'
     # create_time = models.TimeField()

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>名字</th>
+{#            <th>任务列表啦</th>#}
+{#            <th>任务列表啦</th>#}
+        </tr>
+        </thead>
+        <tbody>
+        {% for task in task_list %}
+            <tr>
+                <td>{{ task.id }}</td>
+                <td>
+                    <a  href="/task_detail?id={{ task.id }}">{{ task.name }}</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

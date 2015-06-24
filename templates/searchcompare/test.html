@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="UTF-8">
+    <title> 啦啦啦 </title>
+    
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">YY小工具</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/dealtask/home">Home</a></li>
+                <li><a href="/dealtask/list">任务列表</a></li>
+                <li><a href="/dealtask/showpage">新建任务</a></li>
+                <li><a href="/dealtask/about">关于</a></li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
+>
+<div class="container" style="width:80%; padding-top: 80px; margin-left:10%; margin-right:10%">
+    <div>
+    <input id="keyword" type="text" class="form-control" placeholder="js" value="jquery">
+        <button id="search_button" class="btn btn-lg btn-info" onclick="">搜索</button>
+    </div>
+    <div id="commit_success_windows" style="display:none; position:absolute; left:40%; z-index: 2">
+    <div class="alert alert-success" role="alert">
+        <strong>感谢反馈</strong>你可以试试其他搜索词
+    </div>
+    </div>
+
+<div style="width:50%; float:left; display:inline;">
+    <div style="padding-left: 40%; padding-bottom: 50px">
+    <button id="baidu_button" class="btn btn-lg btn-info" onclick="likethis(1)">喜欢百度</button></div>
+    <iframe id="baidu_iframe" src="https://www.baidu.com/s?wd=jquery" width="90%" height="2500" frameborder="1">
+    <!-- <a href="included.html">你的浏览器不支持iframe页面嵌套，请点击这里访问页面内容。</a> -->
+    </iframe>
+</div>
+
+
+<div style="width:50%; float:left; display:inline;">
+    <div style="padding-left: 40%; padding-bottom: 50px">
+    <button id="sogou_button" class="btn btn-lg btn-info" onclick="likethis(2)">喜欢搜狗</button></div>
+    <iframe id="sogou_iframe" src="http://www.sogou.com/web?query=jquery" width="90%" height="2500" frameborder="1">
+    <!-- <a href="included.html">你的浏览器不支持iframe页面嵌套，请点击这里访问页面内容。</a> -->
+    </iframe>
+</div>
+
+</div>
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="/static/js/bootstrapSwitch.js"></script>
+
+<script src="/static/js/searchcompare/search.js"></script>
+
+</body>
+</html>

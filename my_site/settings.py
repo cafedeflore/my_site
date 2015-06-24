@@ -36,7 +36,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'helloworld',
+    'dealsupplier',
+    'searchcompare',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -50,12 +53,17 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
+REST_FRAMEWORK = {
+        'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+        'PAGINATE_BY': 10
+}
+
 ROOT_URLCONF = 'my_site.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,7 +88,7 @@ DATABASES = {
         'NAME': 'yyqa',
         'USER': 'yyqa',
         'PASSWORD': '123456',
-        'HOST': '192.168.1.104',
+        'HOST': '192.168.1.112',
         'PORT': '3306',
     }
 }
@@ -102,14 +110,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, "static"),
-# )
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
 
 STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (
-    # os.path.join(BASE_DIR,  'templates'),
-    # os.path.join(os.path.dirname(__file__),  'templates').replace('\\', '/'),
-    # 'D:/project/my_site/helloworld/templates/',
+    os.path.join(BASE_DIR, 'templates'),
 )

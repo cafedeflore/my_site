@@ -1,0 +1,73 @@
+{% extends "dealsupplier/base.html" %}
+{#{% load staticfiles %}#}
+{% block content %}
+    <div class="content">
+            <form id="task_form">
+            <ul>
+		<li style="display:none;">
+                    <span>任务ID</span>
+                    <div>
+                        <input type="text" name="id" class="text" value="{{ id }}">
+                    </div>
+                </li>
+                <li>
+                    <span>环境:</span>
+                    <div id="env">
+                        <label>
+                            <input type="radio" checked="checked" name="env" value="0">
+                            大内测
+                        </label>
+                        <label>
+                            <input type="radio" name="env" value="1">
+                            testfortest
+                        </label>
+                        <label>
+                            <input type="radio" name="env" value="2">
+                            online
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <span>具体条件：</span>
+                    <div>
+                        <textarea id="condition" name="condition" class="form-control">
+物流单？
+付款类型：自动/非自动
+储值卡？
+精品单？
+能否使用一键上单
+</textarea>
+                    </div>
+                </li>
+                <li>
+                    <span>提交人：</span>
+                    <div>
+                        <input id="proposer" type="text" name="proposer" class="form-control" placeholder="linnan01" onblur="proposer_check()">
+			<p name="proposer_error"></p>
+                    </div>
+                </li>
+                <li>
+                    <span>需求的系统：</span>
+                    <div>
+                        <input id="system" type="text" name="system" class="form-control" placeholder="运营系统" onblur="system_check()">
+			<p name="system_error"></p>
+                    </div>
+                </li>
+                <li>
+                    <span>补充说明：</span>
+                    <div>
+                        <input id="details" type="text" name="details" class="form-control" placeholder="尽量本周内完成">
+                    </div>
+                </li>
+            </ul>
+
+            </form>
+            <div>
+                <button class="btn btn-lg btn-info" onclick="summit_task()">提交</button>
+            </div>
+
+        </div>
+{% endblock %}
+{% block js %}
+    <script type="text/javascript"  src="/static/js/dealsupplier/task/newtask.js"></script>
+{% endblock %}

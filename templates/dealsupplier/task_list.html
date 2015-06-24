@@ -1,0 +1,75 @@
+{% extends "dealsupplier/base.html" %}
+{% block content %}
+
+<style>
+table thead{background: #3AB5F9; font-size: 16px;}
+table th,table td{width:100px;height:40px;overflow:hidden; padding: 5px;}
+{#table th,table td{width:100px;height:40px;overflow:hidden; border-right: 1px solid #333;}#}
+table th:last-child,table td:last-child{border: 0;}
+table tr:hover td {background: #B8E3FC;}
+</style>
+
+    <div id="detailwin" class="panel panel-primary" tabindex="0" style="display: none; position:absolute; left:400px; margin: 10px; top:50px; background-color:#ffffff; z-index:2;">
+<div class="panel-heading">
+              <h3 class="panel-title">任务详情</h3>
+            </div>
+<div class="panel-body">
+<table class="table table-striped">
+            <thead>
+              <tr>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id='id'>
+                <td>ID</td>
+                <td>Mark</td>
+              </tr>
+		<tr id='env'>
+                <td>环境</td>
+                <td>Mark</td>
+              </tr>
+<tr id='condition'>
+                <td>具体要求</td>
+                <td>Mark</td>
+              </tr>
+<tr id='details'>
+                <td>补充说明</td>
+                <td>Mark</td>
+              </tr>
+              <tr id='comment'>
+                <td>完成信息</td>
+                <td>Jacob</td>
+              </tr>
+            </tbody>
+          </table>
+	<button class="btn btn-sm btn-info" type="submit" onclick="close_detail()">关闭</button>
+</div>
+</div>
+
+<div class="bd">
+                        <h3>任务列表一览</h3>
+                        <table id="task_table" class="table table-striped">
+                                <thead>
+                                        <tr>
+                                                <th>ID</th>
+                                                <th>环境</th>
+                                                <th>具体要求</th>
+                                                <th>提交人</th>
+                                                <!--<th>所在系统</th>-->
+                                                <th>补充说明</th>
+						<!--<th>完成信息</th>
+                                                <th>开始时间</th>
+                                                <th>结束时间</th>-->
+                                                <th>是否完结</th>
+                                                <!--<th>是否作废</th>-->
+                                                <th>操作</th>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                        </table>
+</div>
+{% endblock %}
+{% block js %}
+    <script type="text/javascript"  src="/static/js/dealsupplier/task/taskdetail.js"></script>
+{% endblock %}
